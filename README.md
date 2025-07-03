@@ -52,7 +52,30 @@ You will also need to set up a segment and flow in Klaviyo, which are described 
 
 The first step is to create a segment in Klaviyo containing profiles that we want to suppress. In this example, we’re going to include any profiles where the email address contains a text string that we only see from aliases originating from Amazon, Walmart, and eBay; i.e., any email address ending with marketplace.amazon.com, relaycwalmart.com, or members.ebay.com.
 
-### Step 2: 
+### Step 2: Create a flow triggered on segment membership
+
+Next, we’re going to create a flow in Klaviyo that is triggered on segment membership. This means that when someone first enters the segment, they will automatically enter the flow. Keep in mind that, by design, [Profiles may only enter a segment-triggered flow once](https://help.klaviyo.com/hc/en-us/articles/360003040052-Guide-to-Creating-a-Segment-Triggered-Flow#how-a-segment-triggered-flow-works2).
+
+### Step 3: Choose your Klaviyo API endpoint for suppression or deletion
+
+You can choose to either Suppress a profile or Delete a profile from your Klaviyo account.
+
+**Suppressing a profile** means the profile can no longer receive messages except for transactional messages. The profile will remain in your Klaviyo account but will be marked as suppressed. Events will still be recorded on this profile, which can be useful to have as the profile may subscribe in the future.
+
+**Deleting a profile** means the profile is completely removed from your Klaviyo account, along with any event history and cannot be restored.
+
+### Step 4: Set up the webhook with the relevant Klaviyo API endpoint
+
+Navigate to the src folder. You will find the configuration for a suppression webhook under suppressionWebhook.sh, and the configuration for a deletion webhook under deletionWebhook.sh.
+
+### Step 5: Test and set the flow live
+
+Once you have your webhook configured, you can preview and test the webhook works by clicking the “Preview” button in the webhook settings.
+Verify an email address has populated from your segment and click “Send Test Request.”
+If everythings works then you will get a green success bar saying "Successfully sent webhook."
+Verify the profile is now suppressed/deleted, and then you can set your flow live!
+
+After you’ve confirmed that everything works well, you can set the webhook action to “live” and optionally, you can [add past profiles](https://help.klaviyo.com/hc/en-us/articles/360049924272) to the flow to process any existing segment members. From this point, any time a profile originates in Klaviyo that qualifies into the segment, it will be automatically suppressed or deleted.
 
 ## Version
 
