@@ -79,44 +79,17 @@ After you’ve confirmed that everything works well, you can set the webhook act
 
 ## Version
 
-* SDK type & version number
-* API revision
+API revision: 2025-04-15
 
-## What you'll learn
+## Klaviyo endpoints used
 
-* feature1
-* feature2
-
-## Limitations
-
-* limitation1
-* limitation2
-
-## Klaviyo features + endpoints used
-
-* feature1 : description1
-* feature2 : description2
-
-## Installation
-
-* step1
-* step2
-
-## Testing
-
-* step1
-* step2
+* [Bulk Suppress Profiles](https://developers.klaviyo.com/en/reference/bulk_suppress_profiles)
+* [Request Profile Deletion](https://developers.klaviyo.com/en/reference/request_profile_deletion)
 
 ## Usage
 
-Example usage here
-
-## FAQ
-
-Q: Question1?
-
-A: Answer1.
-
+Follow the steps listed in teh Instructions section above. To set up a webhook in your Klaviyo flow, copy the webhook body and headers from the appropriate file in the src folder.
+Make sure to replace your-private-api-key with your actual private API key with the appropriate permissions.
 
 
 
